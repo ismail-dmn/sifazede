@@ -1,11 +1,15 @@
 /* Genel Ayarlar */
 :root {
-    --primary-color: #4CAF50; /* Şifazade Yeşili */
+    --primary-color: #4CAF50; /* Genel Şifazade Yeşili */
     --secondary-color: #FFD700; /* Şifazade Altın Sarısı */
     --text-color: #333;
     --light-bg: #fdfdfd;
     --dark-bg: #2c3e50; /* Koyu gri/mavi */
     --transition-speed: 0.4s;
+
+    /* Logo ve Header için özel renkler */
+    --logo-text-color: #006400; /* Koyu yeşil logo metin rengi */
+    --header-bg-color: black; /* Header arka plan rengi */
 }
 
 body {
@@ -38,8 +42,8 @@ p {
 
 /* Header */
 .header {
-    background-color: var(--primary-color);
-    color: white;
+    background-color: var(--header-bg-color); /* Arka plan rengi siyah olsun */
+    color: white; /* Genel metin rengi beyaz kalsın */
     padding: 18px 0;
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     position: sticky; /* Sayfayı aşağı kaydırırken üstte kalsın */
@@ -54,16 +58,22 @@ p {
 }
 
 .header .logo {
-    font-size: 2.5em;
-    font-weight: bold;
+    font-family: 'Dancing Script', cursive, sans-serif; /* Dancing Script fontunu kullan */
+    font-size: 3.8em; /* Boyutu büyüttük */
+    font-weight: 700; /* Dancing Script için bold görünüm */
     text-decoration: none;
-    color: white;
+    color: var(--logo-text-color); /* Koyu yeşil renk */
     letter-spacing: 2px;
-    transition: transform var(--transition-speed) ease;
+    transition: transform var(--transition-speed) ease, color var(--transition-speed) ease;
+    padding: 5px 15px;
+    line-height: 1;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* Hafif gölge */
+    white-space: nowrap; /* "ŞİFA ZADE" kelimesinin tek satırda kalmasını sağlar */
 }
 
 .header .logo:hover {
-    transform: scale(1.05);
+    transform: scale(1.08); /* Üzerine gelince büyüme efekti */
+    color: #008000; /* Hover'da daha açık bir yeşil (isteğe bağlı) */
 }
 
 .header nav ul {
@@ -78,7 +88,7 @@ p {
 }
 
 .header nav ul li a {
-    color: white;
+    color: white; /* Navigasyon linkleri beyaz kalsın */
     text-decoration: none;
     font-weight: bold;
     font-size: 1.15em;
@@ -94,7 +104,7 @@ p {
     height: 3px;
     bottom: 0;
     left: 0;
-    background-color: var(--secondary-color);
+    background-color: var(--secondary-color); /* Altın sarısı kalsın */
     transition: width var(--transition-speed) ease;
 }
 
@@ -103,7 +113,7 @@ p {
 }
 
 .header nav ul li a:hover {
-    color: var(--secondary-color);
+    color: var(--secondary-color); /* Altın sarısı hala kullanılabilir */
     transform: translateY(-3px);
 }
 
@@ -563,6 +573,10 @@ p {
     .product-item p, .category-item p {
         font-size: 0.95em;
     }
+    /* Logo küçültme */
+    .header .logo {
+        font-size: 3em; /* Daha küçük ekranlarda logo font boyutunu küçült */
+    }
 }
 
 @media (max-width: 768px) {
@@ -639,11 +653,15 @@ p {
     .map-container {
         max-width: 100%; /* Küçük ekranlarda tam genişlik */
     }
+    /* Logo küçültme */
+    .header .logo {
+        font-size: 2.5em; /* Daha küçük ekranlarda logo font boyutunu küçült */
+    }
 }
 
 @media (max-width: 480px) {
     .header .logo {
-        font-size: 2em;
+        font-size: 2em; /* En küçük ekranlarda logo font boyutunu daha da küçült */
     }
     .hero h1 {
         font-size: 2.2em;
