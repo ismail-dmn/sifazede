@@ -56,23 +56,23 @@ p {
     align-items: center;
 }
 
-/* Görsel Logo Stilleri */
+/* Görsel Logo Stilleri (Boyut 2 katına çıkarıldı) */
 .logo-img-link {
-    display: flex; /* İçindeki resmi ortalamak için */
+    display: flex;
     align-items: center;
-    height: 70px; /* Logoyu içeren bağlantının yüksekliğini belirle */
+    height: 180px; /* Önceki 90px * 2 = 180px */
     text-decoration: none;
 }
 
 .logo-img {
-    height: 100%; /* Bağlantının yüksekliğini doldur */
-    width: auto; /* Oranını koru */
-    max-width: 200px; /* Maksimum genişlik belirle (ayarlayabilirsiniz) */
+    height: 100%;
+    width: auto;
+    max-width: 500px; /* Önceki 250px * 2 = 500px */
     transition: transform var(--transition-speed) ease;
 }
 
 .logo-img:hover {
-    transform: scale(1.08); /* Üzerine gelince büyüme efekti */
+    transform: scale(1.08);
 }
 
 /* Navigasyon Menüsü (Masaüstü) */
@@ -624,9 +624,13 @@ p {
     .product-item p, .category-item p {
         font-size: 0.95em;
     }
-    /* Logo küçültme */
+    /* Logo küçültme (yaklaşık 2 kat büyütüldü) */
     .logo-img {
-        max-width: 150px; /* Daha küçük ekranlarda logo genişliğini küçült */
+        max-width: 400px; /* Önceki 200px * 2 = 400px */
+        height: auto;
+    }
+    .logo-img-link {
+        height: 140px; /* Önceki 70px * 2 = 140px */
     }
 }
 
@@ -752,16 +756,22 @@ p {
     .map-container {
         max-width: 100%;
     }
-    /* Logo küçültme */
+    /* Logo küçültme (yaklaşık 2 kat büyütüldü) */
     .logo-img {
-        max-width: 120px; /* Daha küçük ekranlarda logo genişliğini daha da küçült */
-        height: auto; /* Oranını koru */
+        max-width: 300px; /* Önceki 150px * 2 = 300px */
+        height: auto;
+    }
+    .logo-img-link {
+        height: 120px; /* Önceki 60px * 2 = 120px */
     }
 }
 
 @media (max-width: 480px) {
     .logo-img {
-        max-width: 100px;
+        max-width: 240px; /* Önceki 120px * 2 = 240px */
+    }
+    .logo-img-link {
+        height: 100px; /* Önceki 50px * 2 = 100px */
     }
     .hero h1 {
         font-size: 2.2em;
@@ -777,6 +787,6 @@ p {
         font-size: 0.9em;
     }
     .header .container {
-        padding: 0 15px; /* Daha dar ekranlarda paddingi azalt */
+        padding: 0 15px;
     }
 }
