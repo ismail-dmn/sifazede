@@ -1,757 +1,244 @@
-/* Genel Ayarlar */
-:root {
-    --primary-color: #4CAF50; /* Genel Şifazade Yeşili */
-    --secondary-color: #FFD700; /* Şifazade Altın Sarısı */
-    --text-color: #333;
-    --light-bg: #fdfdfd;
-    --dark-bg: #2c3e50; /* Koyu gri/mavi */
-    --transition-speed: 0.4s;
-
-    /* Logo ve Header için özel renkler */
-    --header-bg-color: black; /* Header arka plan rengi */
-}
-
-body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    color: var(--text-color);
-    line-height: 1.7;
-    background-color: var(--light-bg);
-    overflow-x: hidden; /* Yatay kaydırmayı engelle */
-}
-
-h1, h2, h3 {
-    font-family: 'Playfair Display', serif;
-    color: var(--primary-color);
-    margin-bottom: 20px;
-    line-height: 1.2;
-}
-
-p {
-    margin-bottom: 15px;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 25px;
-}
-
-/* Header */
-.header {
-    background-color: var(--header-bg-color);
-    color: white;
-    padding: 18px 0;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-.header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* Görsel Logo Stilleri */
-.logo-img-link {
-    display: flex; /* İçindeki resmi ortalamak için */
-    align-items: center;
-    height: 70px; /* Logoyu içeren bağlantının yüksekliğini belirle */
-    text-decoration: none;
-}
-
-.logo-img {
-    height: 100%; /* Bağlantının yüksekliğini doldur */
-    width: auto; /* Oranını koru */
-    max-width: 200px; /* Maksimum genişlik belirle (ayarlayabilirsiniz) */
-    transition: transform var(--transition-speed) ease;
-}
-
-.logo-img:hover {
-    transform: scale(1.08); /* Üzerine gelince büyüme efekti */
-}
-
-
-.header nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-.header nav ul li {
-    margin-left: 35px;
-}
-
-.header nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.15em;
-    transition: color var(--transition-speed) ease, transform var(--transition-speed) ease;
-    position: relative;
-    padding-bottom: 8px;
-}
-
-.header nav ul li a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 3px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--secondary-color);
-    transition: width var(--transition-speed) ease;
-}
-
-.header nav ul li a:hover::after {
-    width: 100%;
-}
-
-.header nav ul li a:hover {
-    color: var(--secondary-color);
-    transform: translateY(-3px);
-}
-
-/* Hero Section */
-.hero {
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('images/hero-bg.jpg');
-    background-size: cover;
-    background-position: center;
-    color: white;
-    text-align: center;
-    padding: 120px 20px;
-    min-height: 550px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: inherit;
-    background-attachment: fixed;
-    z-index: -1;
-    transform: scale(1.05);
-}
-
-.hero-content {
-    max-width: 900px;
-    animation: fadeInScale 1.2s ease-out;
-}
-
-.hero h1 {
-    font-size: 4.8em;
-    margin-bottom: 25px;
-    text-shadow: 3px 3px 8px rgba(0,0,0,0.9);
-    color: white;
-}
-
-.hero p {
-    font-size: 1.6em;
-    margin-bottom: 50px;
-    text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
-    color: rgba(255,255,255,0.9);
-}
-
-.btn {
-    display: inline-flex;
-    align-items: center;
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-    padding: 18px 40px;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: bold;
-    font-size: 1.2em;
-    letter-spacing: 0.5px;
-    transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-}
-
-.btn i {
-    margin-left: 10px;
-    transition: transform var(--transition-speed) ease;
-}
-
-.btn:hover {
-    background-color: #e0be00;
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
-}
-
-.btn:hover i {
-    transform: translateX(5px);
-}
-
-.btn-small {
-    display: inline-block;
-    background-color: var(--primary-color);
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 30px;
-    font-size: 0.9em;
-    font-weight: bold;
-    transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
-}
-.btn-small:hover {
-    background-color: #3d8f41;
-    transform: translateY(-2px);
-}
-
-
-/* Sections */
-.section {
-    padding: 100px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.section:nth-of-type(even) {
-    background-color: #f3f3f3;
-}
-
-.section h2 {
-    font-size: 3.8em;
-    margin-bottom: 20px;
-    color: var(--primary-color);
-    position: relative;
-    padding-bottom: 20px;
-}
-
-.section h2::after {
-    content: '';
-    position: absolute;
-    width: 100px;
-    height: 5px;
-    background-color: var(--secondary-color);
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 3px;
-}
-
-.section-description {
-    font-size: 1.3em;
-    color: #666;
-    margin-bottom: 60px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Category and Product Grids */
-.category-grid, .product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-}
-
-.category-item, .product-item {
-    background-color: white;
-    border: 1px solid #eee;
-    border-radius: 15px;
-    overflow: hidden;
-    text-align: center;
-    padding-bottom: 30px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-    position: relative;
-}
-
-.category-item:hover, .product-item:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.18);
-}
-
-.category-item img, .product-item img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    display: block;
-    border-bottom: 1px solid #eee;
-}
-
-.category-item h3, .product-item h3 {
-    margin-top: 25px;
-    font-size: 2em;
-    color: var(--primary-color);
-    margin-bottom: 12px;
-}
-
-.category-item p, .product-item p {
-    font-size: 1.05em;
-    color: #666;
-    padding: 0 25px;
-    margin-bottom: 25px;
-}
-
-.product-tag {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 0.8em;
-    font-weight: bold;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-/* About Section */
-.about-us-section {
-    background-color: var(--light-bg);
-}
-
-.about-content {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 60px;
-    text-align: left;
-    margin-top: 50px;
-}
-
-.about-content img {
-    flex: 1;
-    min-width: 350px;
-    max-width: 550px;
-    height: auto;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    object-fit: cover;
-}
-
-.about-content div {
-    flex: 2;
-    min-width: 300px;
-}
-
-.about-content p {
-    font-size: 1.15em;
-    margin-bottom: 20px;
-    color: #444;
-}
-
-.about-content strong {
-    color: var(--primary-color);
-}
-
-/* Contact Section */
-.contact-section {
-    background-color: #f0f5ee;
-}
-
-.contact-info {
-    text-align: center;
-    margin-top: 50px;
-    background-color: white;
-    padding: 50px;
-    border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
-
-.contact-info p {
-    font-size: 1.3em;
-    margin-bottom: 0;
-    color: #444;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.contact-info p i {
-    color: var(--primary-color);
-    margin-right: 15px;
-    font-size: 1.5em;
-}
-
-.contact-info a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: bold;
-    transition: color var(--transition-speed) ease;
-}
-
-.contact-info a:hover {
-    color: var(--secondary-color);
-}
-
-.map-container {
-    margin-top: 40px;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-    width: 100%;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-}
-
-.map-container iframe {
-    width: 100%;
-    height: 450px;
-    display: block;
-}
-
-
-/* Footer */
-.footer {
-    background-color: var(--dark-bg);
-    color: white;
-    padding: 40px 0;
-    text-align: center;
-    font-size: 0.95em;
-    box-shadow: 0 -4px 15px rgba(0,0,0,0.15);
-}
-
-.footer .social-links {
-    margin-top: 25px;
-    margin-bottom: 25px;
-}
-
-.footer .social-links a {
-    color: white;
-    margin: 0 18px;
-    font-size: 2em;
-    text-decoration: none;
-    transition: color var(--transition-speed) ease, transform var(--transition-speed) ease;
-}
-
-.footer .social-links a:hover {
-    color: var(--secondary-color);
-    transform: scale(1.3);
-}
-
-.footer p a {
-    color: var(--secondary-color);
-    text-decoration: none;
-    transition: color var(--transition-speed) ease;
-}
-
-.footer p a:hover {
-    color: white;
-}
-
-/* Sabit Sosyal Medya Butonları */
-.fixed-social-buttons {
-    position: fixed;
-    bottom: 35px;
-    right: 35px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    z-index: 1000;
-}
-
-.fixed-phone-button,
-.fixed-instagram-button,
-.whatsapp-fixed-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    text-decoration: none;
-    color: white;
-    font-size: 2em;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.fixed-phone-button {
-    background-color: #25D366;
-}
-
-.fixed-instagram-button {
-    background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
-}
-
-.whatsapp-fixed-button {
-    background-color: #25D366;
-}
-
-.fixed-phone-button:hover,
-.fixed-instagram-button:hover,
-.whatsapp-fixed-button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-
-
-/* Scroll Reveal Animations (JavaScript ile kontrol edilecek) */
-.reveal {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 1s ease-out, transform 1s ease-out;
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.reveal.fade-bottom {
-    transform: translateY(50px);
-}
-.reveal.fade-bottom.active {
-    transform: translateY(0);
-}
-
-.reveal.fade-left {
-    transform: translateX(-50px);
-}
-.reveal.fade-left.active {
-    transform: translateX(0);
-}
-
-.reveal.fade-right {
-    transform: translateX(50px);
-}
-.reveal.fade-right.active {
-    transform: translateX(0);
-}
-
-/* Keyframe Animations */
-@keyframes fadeInScale {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-
-/* HAMBURGER MENÜ CSS'LERİ */
-
-/* Hamburger ikonu */
-.menu-toggle {
-    display: none; /* Varsayılan olarak masaüstünde gizli */
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 22px;
-    cursor: pointer;
-    z-index: 150; /* Menünün üstünde olması için */
-}
-
-.menu-toggle .bar {
-    width: 100%;
-    height: 3px;
-    background-color: white;
-    border-radius: 5px;
-    transition: all 0.3s ease-in-out;
-}
-
-/* Hamburger ikon animasyonu (X'e dönüşüm) */
-.menu-toggle.is-active .bar:nth-child(1) {
-    transform: translateY(9px) rotate(45deg);
-}
-
-.menu-toggle.is-active .bar:nth-child(2) {
-    opacity: 0;
-}
-
-.menu-toggle.is-active .bar:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
-}
-
-
-/* Responsive Ayarlar */
-@media (max-width: 992px) {
-    .header nav ul li {
-        margin-left: 20px;
-    }
-    .hero h1 {
-        font-size: 3.5em;
-    }
-    .hero p {
-        font-size: 1.3em;
-    }
-    .section h2 {
-        font-size: 3em;
-    }
-    .section-description {
-        font-size: 1.1em;
-    }
-    .about-content img {
-        max-width: 450px;
-        min-width: unset;
-    }
-    .product-item h3, .category-item h3 {
-        font-size: 1.7em;
-    }
-    .product-item p, .category-item p {
-        font-size: 0.95em;
-    }
-    /* Logo küçültme */
-    .logo-img {
-        max-width: 150px; /* Daha küçük ekranlarda logo genişliğini küçült */
-    }
-}
-
-@media (max-width: 768px) {
-    /* Hamburger menüyü göster */
-    .menu-toggle {
-        display: flex;
-    }
-
-    /* Navigasyon menüsünü gizle ve mobil için yeniden düzenle */
-    .nav-menu {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 70%;
-        max-width: 300px;
-        height: 100%;
-        background-color: var(--dark-bg);
-        padding-top: 100px;
-        box-shadow: -5px 0 15px rgba(0,0,0,0.3);
-        transition: right 0.4s ease-in-out;
-        z-index: 100;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .nav-menu.active {
-        right: 0;
-    }
-
-    .nav-menu ul {
-        flex-direction: column;
-        width: 100%;
-        text-align: center;
-    }
-
-    .nav-menu ul li {
-        margin: 20px 0;
-        font-size: 1.4em;
-    }
-
-    .nav-menu ul li a {
-        color: white;
-        padding: 10px 0;
-        display: block;
-        transition: background-color 0.3s ease;
-    }
-
-    .nav-menu ul li a:hover {
-        background-color: rgba(255,255,255,0.1);
-    }
-
-    /* Diğer responsive ayarlar */
-    .header .container {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    
-    .hero {
-        padding: 80px 20px;
-        min-height: 400px;
-    }
-    .hero h1 {
-        font-size: 2.8em;
-    }
-    .hero p {
-        font-size: 1.1em;
-    }
-    .btn {
-        padding: 15px 30px;
-        font-size: 1em;
-    }
-    .section {
-        padding: 60px 20px;
-    }
-    .section h2 {
-        font-size: 2.5em;
-    }
-    .category-grid, .product-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    .about-content {
-        flex-direction: column;
-        gap: 40px;
-    }
-    .about-content img {
-        max-width: 100%;
-        min-width: unset;
-    }
-    .contact-info p {
-        font-size: 1.1em;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    .contact-info p i {
-        margin-right: 0;
-        margin-bottom: 10px;
-    }
-    /* Sosyal medya butonları küçük ekranlarda */
-    .fixed-social-buttons {
-        bottom: 20px;
-        right: 20px;
-        gap: 10px;
-    }
-
-    .fixed-phone-button,
-    .fixed-instagram-button,
-    .whatsapp-fixed-button {
-        width: 50px;
-        height: 50px;
-        font-size: 1.6em;
-    }
-
-    /* Harita kapsayıcısını küçük ekranlarda ortalama */
-    .map-container {
-        max-width: 100%;
-    }
-    /* Logo küçültme */
-    .logo-img {
-        max-width: 120px; /* Daha küçük ekranlarda logo genişliğini daha da küçült */
-        height: auto; /* Oranını koru */
-    }
-}
-
-@media (max-width: 480px) {
-    .logo-img {
-        max-width: 100px;
-    }
-    .hero h1 {
-        font-size: 2.2em;
-    }
-    .hero p {
-        font-size: 0.9em;
-    }
-    .section h2 {
-        font-size: 2em;
-    }
-    .btn {
-        padding: 12px 25px;
-        font-size: 0.9em;
-    }
-}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Şifazade BAHARAT - KURUYEMİŞ - AKTAR | Doğanın Kalbinden</title>
+    <meta name="description" content="Şifazade Baharat, Kuruyemiş ve Aktar ürünleriyle doğanın şifasını ve lezzetini sofranıza taşıyor. Geleneksel tatlar, en doğal haliyle şimdi sizinle.">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <a href="#home" class="logo-img-link">
+                <img src="logo.JPG" alt="Şifazade Logo" class="logo-img">
+                </a>
+            
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#home">Anasayfa</a></li>
+                    <li><a href="#baharatlar">Baharatlar</a></li>
+                    <li><a href="#kuruyemisler">Kuruyemişler</a></li>
+                    <li><a href="#aktar-urunleri">Aktar Ürünleri</a></li>
+                    <li><a href="#hakkimizda">Hakkımızda</a></li>
+                    <li><a href="#iletisim">İletişim</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Şifazade: Doğanın Kalbinden Sofranıza Saflık</h1>
+            <p>Yüzyıllık geleneklerin izinde, en taze ve doğal ürünlerle lezzet yolculuğunuz başlasın.</p>
+            <a href="#urunler" class="btn">Ürünlerimizi Keşfedin <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <section id="urunler" class="section featured-products">
+        <h2>Doğadan Gelen Lezzetler ve Şifalar</h2>
+        <p class="section-description">Şifazade kalitesiyle özenle seçilmiş ürün kategorilerimiz:</p>
+        <div class="category-grid">
+            <div class="category-item reveal fade-bottom">
+                <img src="images/baharatlar.jpg" alt="Baharatlar Koleksiyonu">
+                <h3>Baharatlar</h3>
+                <p>Mutfaklarınıza sihirli bir dokunuş katın. Dünyanın en özel baharatları.</p>
+                <a href="#baharatlar" class="btn-small">İncele</a>
+            </div>
+            <div class="category-item reveal fade-bottom">
+                <img src="images/kuruyemisler.jpg" alt="Kuruyemiş Çeşitleri">
+                <h3>Kuruyemişler</h3>
+                <p>Sağlıklı atıştırmalıkların ve lezzetli ikramların vazgeçilmezi.</p>
+                <a href="#kuruyemisler" class="btn-small">İncele</a>
+            </div>
+            <div class="category-item reveal fade-bottom">
+                <img src="images/aktar-urunleri.jpg" alt="Aktar Bitkisel Ürünler">
+                <h3>Aktar Ürünleri</h3>
+                <p>Kadim bilgilerle doğanın şifasını evinize taşıyan özel seçkiler.</p>
+                <a href="#aktar-urunleri" class="btn-small">İncele</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="baharatlar" class="section product-showcase">
+        <h2>Gizemli ve Çarpıcı Baharatlarımız</h2>
+        <p class="section-description">Her yemeğe özel bir dokunuş: En taze ve aromatik baharatlarımız.</p>
+        <div class="product-grid">
+            <div class="product-item reveal fade-left">
+                <img src="images/pul-biber.jpg" alt="Şifazade Pul Biber">
+                <h3>Pul Biber</h3>
+                <p>Güneşte kurutulmuş, yoğun lezzet ve hafif acılık.</p>
+                <span class="product-tag">Çok Satan</span>
+            </div>
+            <div class="product-item reveal fade-bottom">
+                <img src="images/kekik.jpg" alt="Şifazade Kekik">
+                <h3>Kekik</h3>
+                <p>Torosların zirvesinden, eşsiz aromasıyla.</p>
+            </div>
+            <div class="product-item reveal fade-right">
+                <img src="images/kimyon.jpg" alt="Şifazade Kimyon">
+                <h3>Kimyon</h3>
+                <p>Yemeklerin ruhu, taze ve öğütülmüş.</p>
+            </div>
+            </div>
+    </section>
+
+    <section id="kuruyemisler" class="section product-showcase">
+        <h2>Taptaze ve Enerji Veren Kuruyemişler</h2>
+        <p class="section-description">Günün her anına lezzet ve sağlık katan kuruyemişlerimiz.</p>
+        <div class="product-grid">
+            <div class="product-item reveal fade-left">
+                <img src="images/badem.jpg" alt="Şifazade Badem">
+                <h3>Tuzsuz Badem</h3>
+                <p>Doğal, besleyici ve her haliyle mükemmel.</p>
+            </div>
+            <div class="product-item reveal fade-bottom">
+                <img src="images/antep-fistigi.jpg" alt="Şifazade Antep Fıstığı">
+                <h3>Antep Fıstığı</h3>
+                <p>Yeşilin en lezzetli hali, kabuklu veya içi.</p>
+                <span class="product-tag">Özel Seçim</span>
+            </div>
+            <div class="product-item reveal fade-right">
+                <img src="images/findik.jpg" alt="Şifazade Fındık">
+                <h3>Fındık</h3>
+                <p>Karadeniz'den, çiğ veya kavrulmuş.</p>
+            </div>
+            </div>
+    </section>
+
+    <section id="aktar-urunleri" class="section product-showcase">
+        <h2>Doğanın Şifalı Dokunuşları: Aktar Ürünleri</h2>
+        <p class="section-description">Geleneksel bitkisel çözümler ve doğal yaşam sırları.</p>
+        <div class="product-grid">
+            <div class="product-item reveal fade-left">
+                <img src="images/kusburnu.jpg" alt="Şifazade Kuşburnu">
+                <h3>Kuşburnu</h3>
+                <p>C vitamin deposu, çaylarınızın vazgeçilmezi.</p>
+            </div>
+            <div class="product-item reveal fade-bottom">
+                <img src="images/corek-otu.jpg" alt="Şifazade Çörek Otu">
+                <h3>Çörek Otu</h3>
+                <p>Binbir derde deva, mucizevi tohumlar.</p>
+            </div>
+            <div class="product-item reveal fade-right">
+                <img src="images/kantaron-yagi.jpg" alt="Şifazade Kantaron Yağı">
+                <h3>Kantaron Yağı</h3>
+                <p>Cilt yenileyici, doğal bakım sırrı.</p>
+            </div>
+            </div>
+    </section>
+
+    <section id="hakkimizda" class="section about-us-section">
+        <h2>Şifazade'nin Hikayesi: Geleneğin Modern Dokunuşu</h2>
+        <div class="about-content reveal fade-bottom">
+            <img src="images/about-us.jpg" alt="Şifazade Ailesi">
+            <div>
+                <p><strong>Şifazade BAHARAT - KURUYEMİŞ - AKTAR</strong> olarak, nesiller boyu aktarılan bilgi ve tecrübeyi, günümüzün modern anlayışıyla harmanlıyoruz. Misyonumuz; Anadolu'nun ve dünyanın dört bir yanından, en saf ve en kaliteli ürünleri, **doğrudan kaynağından** seçerek sofralarınıza ulaştırmak.</p>
+                <p>Bizim için her bir ürün sadece bir meta değil, aynı zamanda doğanın bir mucizesi ve geçmişten gelen bir mirastır. Ürünlerimizin her aşamasında gösterdiğimiz titizlik, tazelik ve doğallık garantisiyle **Şifazade adını bir güven markası** haline getirmektir.</p>
+                <p>Siz de Şifazade ailesine katılın, doğanın iyileştirici gücünü ve eşsiz lezzetlerini keşfedin. Çünkü biliyoruz ki, **sağlık ve lezzet bir aradadır.**</p>
+                <a href="#iletisim" class="btn">Bizimle Tanışın <i class="fas fa-handshake"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="iletisim" class="section contact-section">
+        <h2>Bize Ulaşın</h2>
+        <p class="section-description">Sorularınız, önerileriniz veya özel talepleriniz için her zaman yanınızdayız.</p>
+        <div class="contact-info reveal fade-bottom">
+            <p><i class="fas fa-map-marker-alt"></i> <strong>Adres:</strong> <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3009.687487216139!2d28.96695271569619!3d41.01890337929946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cabbd399999999%3A0x7d0a6c6a4d7d1e0d!2sM%C4%B1s%C4%B1r%20%C3%87ar%C5%9F%C4%B1s%C4%B1!5e0!3m2!1str!2str!4v1678901234567!5m2!1str!2str9" target="_blank">Esenkent, Çağrıbey Cd No: 8 D:B, 34500 Ümraniye/İstanbul</a></p>
+            <p><i class="fas fa-phone-alt"></i> <strong>Telefon:</strong> <a href="tel:05308263325">0530 826 33 25</a></p>
+            <p><i class="fas fa-clock"></i> <strong>Saatler:</strong> 09:00–21:30</p>
+            <p><i class="fas fa-envelope"></i> <strong>E-posta:</strong> <a href="mailto:info@sifazade.com">info@sifazade.com</a></p>
+            
+            <h3>Konumumuz:</h3>
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3010.9893180347326!2d29.184656999999998!3d41.003606999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cacf864fc1da7d%3A0x8ccb2bf7d31e6a6c!2s%C5%9Eifazade%20BAHARAT%20-%20KURUYEM%C4%B0%C5%9E%20-%20AKTAR!5e0!3m2!1str!2str!4v1748293061089!5m2!1str!2str"
+                    width="100%" height="450px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            <p>Konum koordinatları: 41.003626, 29.184653</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2024 Şifazade BAHARAT - KURUYEMİŞ - AKTAR. Tüm Hakları Saklıdır.</p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/sifazade/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            <p><a href="#">Gizlilik Politikası</a> | <a href="#">Kullanım Koşulları</a></p>
+        </div>
+    </footer>
+
+    <div class="fixed-social-buttons">
+        <a href="tel:05308263325" class="fixed-phone-button" aria-label="Telefon ile Arayın">
+            <i class="fas fa-phone"></i>
+        </a>
+        <a href="https://www.instagram.com/sifazade/" target="_blank" class="fixed-instagram-button" aria-label="Instagram Hesabımızı Ziyaret Edin">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/905308263325" class="whatsapp-fixed-button" target="_blank" aria-label="WhatsApp ile İletişime Geçin">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <script>
+        // Sayfa kaydırma animasyonları için JavaScript
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                // Mobil menü açıksa kapat
+                const navMenu = document.querySelector('.nav-menu');
+                const menuToggle = document.getElementById('mobile-menu');
+                if (navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                    menuToggle.classList.remove('is-active'); // Hamburger ikon animasyonu için
+                }
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Sayfa yüklendiğinde ve kaydırıldığında elemanların görünürlüğüne göre animasyon tetikleme
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const observerOptions = {
+            threshold: 0.1 // Elemanın %10'u görünür olduğunda animasyonu tetikle
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Animasyon bir kez çalışsın
+                }
+            });
+        }, observerOptions);
+
+        revealElements.forEach(el => observer.observe(el));
+
+        // Hamburger Menü JavaScript Fonksiyonelliği
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navMenu = document.querySelector('.nav-menu');
+
+        mobileMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenu.classList.toggle('is-active'); // Hamburger ikon animasyonu için
+        });
+    </script>
+
+</body>
+</html>
