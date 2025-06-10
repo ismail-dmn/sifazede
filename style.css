@@ -8,7 +8,6 @@
     --transition-speed: 0.4s;
 
     /* Logo ve Header için özel renkler */
-    --logo-text-color: #006400; /* Koyu yeşil logo metin rengi */
     --header-bg-color: black; /* Header arka plan rengi */
 }
 
@@ -42,11 +41,11 @@ p {
 
 /* Header */
 .header {
-    background-color: var(--header-bg-color); /* Arka plan rengi siyah olsun */
-    color: white; /* Genel metin rengi beyaz kalsın */
+    background-color: var(--header-bg-color);
+    color: white;
     padding: 18px 0;
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    position: sticky; /* Sayfayı aşağı kaydırırken üstte kalsın */
+    position: sticky;
     top: 0;
     z-index: 100;
 }
@@ -57,24 +56,25 @@ p {
     align-items: center;
 }
 
-.header .logo {
-    font-family: 'Roboto', sans-serif; /* Roboto veya sistemin varsayılan sans-serif fontunu kullan */
-    font-size: 3.8em; /* Boyutu büyüttük */
-    font-weight: 700; /* Kalınlık */
+/* Görsel Logo Stilleri */
+.logo-img-link {
+    display: flex; /* İçindeki resmi ortalamak için */
+    align-items: center;
+    height: 70px; /* Logoyu içeren bağlantının yüksekliğini belirle */
     text-decoration: none;
-    color: var(--logo-text-color); /* Koyu yeşil renk */
-    letter-spacing: 2px;
-    transition: transform var(--transition-speed) ease, color var(--transition-speed) ease;
-    padding: 5px 15px;
-    line-height: 1;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* Hafif gölge */
-    white-space: nowrap; /* "ŞİFA ZADE" kelimesinin tek satırda kalmasını sağlar */
 }
 
-.header .logo:hover {
-    transform: scale(1.08); /* Üzerine gelince büyüme efekti */
-    color: #008000; /* Hover'da daha açık bir yeşil (isteğe bağlı) */
+.logo-img {
+    height: 100%; /* Bağlantının yüksekliğini doldur */
+    width: auto; /* Oranını koru */
+    max-width: 200px; /* Maksimum genişlik belirle (ayarlayabilirsiniz) */
+    transition: transform var(--transition-speed) ease;
 }
+
+.logo-img:hover {
+    transform: scale(1.08); /* Üzerine gelince büyüme efekti */
+}
+
 
 .header nav ul {
     list-style: none;
@@ -88,7 +88,7 @@ p {
 }
 
 .header nav ul li a {
-    color: white; /* Navigasyon linkleri beyaz kalsın */
+    color: white;
     text-decoration: none;
     font-weight: bold;
     font-size: 1.15em;
@@ -104,7 +104,7 @@ p {
     height: 3px;
     bottom: 0;
     left: 0;
-    background-color: var(--secondary-color); /* Altın sarısı kalsın */
+    background-color: var(--secondary-color);
     transition: width var(--transition-speed) ease;
 }
 
@@ -113,19 +113,19 @@ p {
 }
 
 .header nav ul li a:hover {
-    color: var(--secondary-color); /* Altın sarısı hala kullanılabilir */
+    color: var(--secondary-color);
     transform: translateY(-3px);
 }
 
 /* Hero Section */
 .hero {
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('images/hero-bg.jpg'); /* Resim üzerine hafif koyu katman */
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('images/hero-bg.jpg');
     background-size: cover;
     background-position: center;
     color: white;
     text-align: center;
     padding: 120px 20px;
-    min-height: 550px; /* Daha yüksek bir başlangıç */
+    min-height: 550px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -134,7 +134,7 @@ p {
     overflow: hidden;
 }
 
-.hero::before { /* Parallax benzeri hareket için arka plan efekti */
+.hero::before {
     content: '';
     position: absolute;
     top: 0;
@@ -142,21 +142,21 @@ p {
     width: 100%;
     height: 100%;
     background: inherit;
-    background-attachment: fixed; /* Parallax efekti */
+    background-attachment: fixed;
     z-index: -1;
-    transform: scale(1.05); /* Arka planı hafifçe büyüt */
+    transform: scale(1.05);
 }
 
 .hero-content {
     max-width: 900px;
-    animation: fadeInScale 1.2s ease-out; /* Başlangıç animasyonu */
+    animation: fadeInScale 1.2s ease-out;
 }
 
 .hero h1 {
     font-size: 4.8em;
     margin-bottom: 25px;
     text-shadow: 3px 3px 8px rgba(0,0,0,0.9);
-    color: white; /* Başlık rengini beyaz yap */
+    color: white;
 }
 
 .hero p {
@@ -167,7 +167,7 @@ p {
 }
 
 .btn {
-    display: inline-flex; /* İkonu hizalamak için */
+    display: inline-flex;
     align-items: center;
     background-color: var(--secondary-color);
     color: var(--primary-color);
@@ -187,7 +187,7 @@ p {
 }
 
 .btn:hover {
-    background-color: #e0be00; /* Daha koyu altın sarısı */
+    background-color: #e0be00;
     transform: translateY(-5px);
     box-shadow: 0 12px 30px rgba(0,0,0,0.35);
 }
@@ -196,7 +196,7 @@ p {
     transform: translateX(5px);
 }
 
-.btn-small { /* Kategori itemları için daha küçük buton */
+.btn-small {
     display: inline-block;
     background-color: var(--primary-color);
     color: white;
@@ -221,7 +221,7 @@ p {
     text-align: center;
 }
 
-.section:nth-of-type(even) { /* Her çift section'a farklı arka plan rengi */
+.section:nth-of-type(even) {
     background-color: #f3f3f3;
 }
 
@@ -280,7 +280,7 @@ p {
 
 .category-item img, .product-item img {
     width: 100%;
-    height: 250px; /* Daha yüksek resimler */
+    height: 250px;
     object-fit: cover;
     display: block;
     border-bottom: 1px solid #eee;
@@ -330,7 +330,7 @@ p {
 .about-content img {
     flex: 1;
     min-width: 350px;
-    max-width: 550px; /* Daha büyük resim */
+    max-width: 550px;
     height: auto;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
@@ -354,7 +354,7 @@ p {
 
 /* Contact Section */
 .contact-section {
-    background-color: #f0f5ee; /* Açık yeşil tonu */
+    background-color: #f0f5ee;
 }
 
 .contact-info {
@@ -400,18 +400,17 @@ p {
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-    /* Haritayı ortalamak için eklenen kodlar */
-    width: 100%; /* Kapsayıcının genişliği */
-    max-width: 800px; /* Maksimum genişlik belirleyerek çok büyümesini engelle */
-    margin-left: auto; /* Otomatik sol kenar boşluğu */
-    margin-right: auto; /* Otomatik sağ kenar boşluğu */
-    display: block; /* Margin: auto ile ortalanması için block seviye öğe olması gerekir */
+    width: 100%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 
 .map-container iframe {
-    width: 100%; /* Kapsayıcısının genişliğini doldur */
-    height: 450px; /* Yüksekliğini belirle */
-    display: block; /* Fazladan boşlukları önlemek için */
+    width: 100%;
+    height: 450px;
+    display: block;
 }
 
 
@@ -456,12 +455,12 @@ p {
 /* Sabit Sosyal Medya Butonları */
 .fixed-social-buttons {
     position: fixed;
-    bottom: 35px; /* WhatsApp butonunun altından başlangıç noktası */
-    right: 35px; /* Sağ kenardan başlangıç noktası */
+    bottom: 35px;
+    right: 35px;
     display: flex;
-    flex-direction: column; /* Butonları alt alta sırala */
-    gap: 15px; /* Butonlar arası boşluk */
-    z-index: 1000; /* Diğer elementlerin üzerinde görünmesini sağla */
+    flex-direction: column;
+    gap: 15px;
+    z-index: 1000;
 }
 
 .fixed-phone-button,
@@ -472,32 +471,31 @@ p {
     align-items: center;
     width: 60px;
     height: 60px;
-    border-radius: 50%; /* Yuvarlak butonlar */
+    border-radius: 50%;
     text-decoration: none;
-    color: white; /* İkon rengi */
-    font-size: 2em; /* İkon boyutu */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Hafif gölge */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover efekti için geçiş */
+    color: white;
+    font-size: 2em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .fixed-phone-button {
-    background-color: #25D366; /* Telefon butonu için yeşil tonu (WhatsApp ile uyumlu) */
+    background-color: #25D366;
 }
 
 .fixed-instagram-button {
-    /* Instagram'ın marka renkleri için gradyan */
     background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
 }
 
 .whatsapp-fixed-button {
-    background-color: #25D366; /* WhatsApp'ın orijinal yeşil rengi */
+    background-color: #25D366;
 }
 
 .fixed-phone-button:hover,
 .fixed-instagram-button:hover,
 .whatsapp-fixed-button:hover {
-    transform: scale(1.1); /* Üzerine gelindiğinde hafifçe büyüt */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Gölgeyi belirginleştir */
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 
@@ -610,27 +608,27 @@ p {
         font-size: 0.95em;
     }
     /* Logo küçültme */
-    .header .logo {
-        font-size: 3em; /* Daha küçük ekranlarda logo font boyutunu küçült */
+    .logo-img {
+        max-width: 150px; /* Daha küçük ekranlarda logo genişliğini küçült */
     }
 }
 
 @media (max-width: 768px) {
     /* Hamburger menüyü göster */
     .menu-toggle {
-        display: flex; /* Küçük ekranlarda hamburger ikonunu göster */
+        display: flex;
     }
 
     /* Navigasyon menüsünü gizle ve mobil için yeniden düzenle */
     .nav-menu {
         position: fixed;
-        top: 0; /* Header'ın altına yerleşmesi için gerekirse header yüksekliği kadar ayarla */
-        right: -100%; /* Başlangıçta ekran dışına gizle */
-        width: 70%; /* Menünün genişliği */
-        max-width: 300px; /* Maksimum genişlik */
-        height: 100%; /* Tam ekran yüksekliği */
-        background-color: var(--dark-bg); /* Menü arka planı */
-        padding-top: 100px; /* Logo ve hamburger ikonuna göre boşluk */
+        top: 0;
+        right: -100%;
+        width: 70%;
+        max-width: 300px;
+        height: 100%;
+        background-color: var(--dark-bg);
+        padding-top: 100px;
         box-shadow: -5px 0 15px rgba(0,0,0,0.3);
         transition: right 0.4s ease-in-out;
         z-index: 100;
@@ -640,7 +638,7 @@ p {
     }
 
     .nav-menu.active {
-        right: 0; /* Aktif olduğunda menüyü içeri kaydır */
+        right: 0;
     }
 
     .nav-menu ul {
@@ -650,24 +648,24 @@ p {
     }
 
     .nav-menu ul li {
-        margin: 20px 0; /* Mobil menü öğeleri arası boşluk */
+        margin: 20px 0;
         font-size: 1.4em;
     }
 
     .nav-menu ul li a {
-        color: white; /* Menü link rengi */
+        color: white;
         padding: 10px 0;
-        display: block; /* Tüm alanı tıklanabilir yap */
+        display: block;
         transition: background-color 0.3s ease;
     }
 
     .nav-menu ul li a:hover {
-        background-color: rgba(255,255,255,0.1); /* Hover efekti */
+        background-color: rgba(255,255,255,0.1);
     }
 
     /* Diğer responsive ayarlar */
     .header .container {
-        flex-direction: row; /* Mobil menüde hala logo ve hamburger yan yana olsun */
+        flex-direction: row;
         justify-content: space-between;
     }
     
@@ -692,7 +690,7 @@ p {
         font-size: 2.5em;
     }
     .category-grid, .product-grid {
-        grid-template-columns: 1fr; /* Küçük ekranlarda tek sütun */
+        grid-template-columns: 1fr;
         gap: 30px;
     }
     .about-content {
@@ -717,30 +715,31 @@ p {
     .fixed-social-buttons {
         bottom: 20px;
         right: 20px;
-        gap: 10px; /* Butonlar arası boşluğu azalt */
+        gap: 10px;
     }
 
     .fixed-phone-button,
     .fixed-instagram-button,
     .whatsapp-fixed-button {
-        width: 50px; /* Küçük ekranlarda buton boyutunu azalt */
+        width: 50px;
         height: 50px;
-        font-size: 1.6em; /* İkon boyutunu azalt */
+        font-size: 1.6em;
     }
 
     /* Harita kapsayıcısını küçük ekranlarda ortalama */
     .map-container {
-        max-width: 100%; /* Küçük ekranlarda tam genişlik */
+        max-width: 100%;
     }
     /* Logo küçültme */
-    .header .logo {
-        font-size: 2.5em; /* Daha küçük ekranlarda logo font boyutunu küçült */
+    .logo-img {
+        max-width: 120px; /* Daha küçük ekranlarda logo genişliğini daha da küçült */
+        height: auto; /* Oranını koru */
     }
 }
 
 @media (max-width: 480px) {
-    .header .logo {
-        font-size: 2em; /* En küçük ekranlarda logo font boyutunu daha da küçült */
+    .logo-img {
+        max-width: 100px;
     }
     .hero h1 {
         font-size: 2.2em;
